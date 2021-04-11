@@ -97,20 +97,26 @@ include('includes/navbar.php');
               if(mysqli_num_rows($query_run) > 0)
               {
                 while($row = mysqli_fetch_assoc($query_run)){
-                  echo $row['id'];
-                  echo $row['username'];
-                  echo $row['email'];
-                  echo $row['password'];
-                }  
-              }
           ?>
           <tr>
             <td><?php echo $row['id'];  ?></td>
             <td><?php echo $row['username']; ?></td>
             <td><?php echo $row['email']; ?></td>
             <td><?php echo $row['password'];  ?></td>
+            <td>
+              <button type="submit" class="btn btn-success"> EDIT</button>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-danger"> DELETE</button>
+            </td>
           </tr>
-        
+          <?php
+                }  
+              }else{
+                echo "No Record Found";
+              }
+          ?>
+
         </tbody>
       </table>
 
