@@ -75,27 +75,42 @@ include('includes/navbar.php');
         
       ?>
     <div class="table-responsive">
+    <?php 
+        $connection = mysqli_connect("localhost","root","","sb2_admin");
+        $query = "SELECT * FROM register";
+        $query_run = mysqli_query($connection,$query); 
 
+    ?>
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
+            <th> ID </th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>EDIT </th>
+            <th>DELETE</th>
           </tr>
         </thead>
         <tbody>
+          <?php
+              if(mysqli_num_rows($query_run) > 0)
+              {
+                while($row = mysqli_fetch_assoc($query_run)){
+                  echo $row['id'];
+                  echo $row['username'];
+                  echo $row['email'];
+                  echo $row['password'];
+                }  
+              }
+          ?>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $row['id'];  ?></td>
+            <td><?php echo $row['username']; ?></td>
+            <td><?php echo $row['email']; ?></td>
+            <td><?php echo $row['password'];  ?></td>
           </tr>
+        
         </tbody>
       </table>
 
