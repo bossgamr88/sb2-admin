@@ -50,4 +50,32 @@ session_start();
             header('Location: register.php');
         }
     }
+
+    if(isset($_POST['delete_btn']))
+    {
+        $id = $_POST['delete_id'];
+        $query = "DELETE FROM register WHERE id='$id' ";
+        $query_run = mysqli_query($connection,$query);
+
+        if($query_run )
+        {
+            $_SESSION['success'] = "Your Data is DELETE";
+            header('Location: register.php');
+        }
+        else
+        {
+            $_SESSION['status'] = "Your Data is NOT DELETE";
+            header('Location: register.php');
+        }
+       
+    }
+
+
+
+
+
+
+
+
+
 ?>
