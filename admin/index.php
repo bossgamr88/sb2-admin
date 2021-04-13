@@ -23,7 +23,7 @@ include('includes/navbar.php');
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered Admin</div>
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total User:</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
               
               <?php 
@@ -32,7 +32,7 @@ include('includes/navbar.php');
                   $query_run = mysqli_query($connection,$query);
 
                   $row = mysqli_num_rows($query_run);
-                  echo '<h1> '.$row.' </h1>';
+                  echo '<h1>'.$row.' </h1>';
               ?>
               </div>
             </div>
