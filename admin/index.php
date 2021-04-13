@@ -25,9 +25,15 @@ include('includes/navbar.php');
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered Admin</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
+              
+              <?php 
+                  require 'dbconfig.php';
+                  $query = "SELECT id FROM register ORDER BY id";
+                  $query_run = mysqli_query($connection,$query);
 
-               <h4>Total Admin: *</h4>
-
+                  $row = mysqli_num_rows($query_run);
+                  echo '<h1> '.$row.' </h1>';
+              ?>
               </div>
             </div>
             <div class="col-auto">
@@ -102,14 +108,7 @@ include('includes/navbar.php');
 
   <!-- Content Row -->
 
-
-
-
-
-
-
-
-  <?php
+<?php
 include('includes/scripts.php');
 include('includes/footer.php');
 ?>
