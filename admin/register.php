@@ -104,7 +104,10 @@ include('includes/navbar.php');
             <td><?php echo $row['email']; ?></td>
             <td><?php echo $row['password'];  ?></td>
             <td>
-              <button type="submit" class="btn btn-success"> EDIT</button>
+              <form action="register_edit.php" method="post">
+                <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>" >
+                <button type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+              </form>
             </td>
             <td>
               <button type="submit" class="btn btn-danger"> DELETE</button>

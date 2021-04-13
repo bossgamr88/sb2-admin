@@ -14,14 +14,15 @@ include('includes/navbar.php');
     <div class="card-body">
     <?php 
     $connection = mysqli_connect("localhost","root","","sb2_admin");
-  if(isset($_POST['edit_btn']))
-    {
+    if(isset($_POST['edit_btn'])){
         $id = $_POST['edit_id'];
         // echo $id;
         $query = "SELECT * FROM register WHERE id='$id' ";
         $query_run = mysqli_query($connection,$query);
-    }
-    ?>
+    
+        foreach($query_run as $row){
+            ?>
+
             <div class="form-group">
                 <label> Username </label>
                 <input type="text" name="username" value="<?php echo $row['username']  ?>" 
@@ -37,8 +38,12 @@ include('includes/navbar.php');
                 <input type="password" name="password" value="<?php echo $row['password']  ?>"
                 class="form-control" placeholder="Enter Password">
             </div>
-        
-
+            <a href="register.php" class="btn btn-danger">CANCEL</a>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <?php    
+        }
+    }
+    ?>
     </div>
   </div>
 </div>
