@@ -1,4 +1,6 @@
 <?php 
+include('security.php');
+
 session_start();
     $connection = mysqli_connect("localhost","root","","sb2_admin");
 
