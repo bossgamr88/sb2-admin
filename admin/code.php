@@ -75,10 +75,10 @@ session_start();
         $email_login = $_POST['email'];
         $password_login = $_POST['password'];
 
-        $query = "SELECT * FROM register WHERE id='$email_login' AND password='$password_login' ";
+        $query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login' ";
         $query_run = mysqli_query($connection,$query);
 
-        if($query_run )
+        if(mysqli_fetch_array($query_run))
         {
             $_SESSION['username'] = $email_login;
             header('Location: index.php');
