@@ -1,9 +1,9 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand-lg navbar navbar-dark bg-dark">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">MyCollege Website</a>
+    <a class="navbar-brand" href="index.php">MyCollege Website</a>
 
     <!-- Toggle button -->
     <button
