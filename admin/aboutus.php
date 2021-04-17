@@ -73,10 +73,10 @@ include('includes/navbar.php');
         <thead>
           <tr>
             <th> ID </th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>UserType</th>
+            <th>Title</th>
+            <th>Sub Title</th>
+            <th>Description</th>
+            <th>links</th>
             <th>EDIT </th>
             <th>DELETE</th>
           </tr>

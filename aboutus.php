@@ -10,9 +10,35 @@ include('includes/navbar.php');
             <div class="card">
             <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+            <?php
+              require 'admin/database/dbconfig.php';
+
+              $query = "SELECT * FROM abouts";
+              $query_run = mysqli_query($connection,$query);
+
+              if(mysqli_num_rows($query_run) > 0)
+              {
+                foreach($query_run as $row)
+                {
+                  ?>
+                  <!-- echo $row['title'];
+                  echo $row['subtitle'];
+                  echo $row['description'];
+                  echo $row['links']; -->
+
+                <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                <h6><?php echo $row['subtitle']; ?></h6>
+                <p class="card-text"><?php echo $row['description']; ?></p>
+                <a href="<?php echo $row['links']; ?>" class="btn btn-primary">Go somewhere</a>
+                <?php
+                }
+              }
+              else
+              {
+                echo "No Record Found";
+              }
+            ?>
+            
             </div>
             </div>
     </div>
