@@ -104,9 +104,67 @@ session_start();
     }
 
 
+    // insert about us
+    if(isset($_POST['about_save']))
+{
+    $title = $_POST['title'];
+    $subtitle = $_POST['subtitle'];
+    $description = $_POST['description'];
+    $links = $_POST['links'];
 
+    $query = "INSERT INTO abouts (title,subtitle,description,links) VALUES ('$title','$subtitle','$description','$links')";
+    $query_run = mysqli_query($connection,$query);
 
+    if ($query_run) {
+        $_SESSION['success'] = "About Us Added";
+        header('Location: aboutus.php');
+    }else{
+        $_SESSION['status'] = "About Us Not Added";
+        header('Location: aboutus.php');
+    }
 
+}
+
+    // edit abouts
+    if(isset($_POST['about_edit_btn']))
+{
+    $id = $_POST['about_edit_id'];
+    $title = $_POST['edit_title'];
+    $subtitle = $_POST['edit_subtitle'];
+    $description = $_POST['edit_description'];
+    $links = $_POST['edit_links'];
+
+    $query = "UPDATE abouts SET title='$title',subtitle='$subtitle',description='$description',links='$links' WHERE id='$id' "; 
+    $query_run = mysqli_query($connection,$query);
+
+    if ($query_run) {
+        $_SESSION['success'] = "About Us Updated";
+        header('Location: aboutus.php');
+    }else{
+        $_SESSION['status'] = "About Us Not Updated";
+        header('Location: aboutus.php');
+    }
+
+}
+
+if(isset($_POST['about_delete_btn']))
+{
+    $id = $_POST['delete_id'];
+    $query = "DELETE FROM abouts WHERE id='$id' ";
+    $query_run = mysqli_query($connection,$query);
+
+    if($query_run )
+    {
+        $_SESSION['success'] = "Your Data is DELETED";
+        header('Location: aboutus.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Your Data is NOT DELETED";
+        header('Location: aboutus.php');
+    }
+   
+}
 
 
 ?>
